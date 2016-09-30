@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Runtime.InteropServices;
 
-namespace Pluralsight.Crypto
+namespace Tomshli.Crypto
 {
     [StructLayout(LayoutKind.Sequential)]
     public abstract class DisposeableObject : IDisposable

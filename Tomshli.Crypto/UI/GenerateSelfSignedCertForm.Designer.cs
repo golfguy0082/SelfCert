@@ -2,7 +2,7 @@
 // This code was written by Keith Brown, and may be freely used.
 // Want to learn more about .NET? Visit pluralsight.com today!
 //
-namespace Pluralsight.Crypto.UI
+namespace Tomshli.Crypto.UI
 {
     partial class GenerateSelfSignedCertForm
     {
@@ -35,11 +35,11 @@ namespace Pluralsight.Crypto.UI
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GenerateSelfSignedCertForm));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.dtpValidTo = new System.Windows.Forms.DateTimePicker();
             this.dtpValidFrom = new System.Windows.Forms.DateTimePicker();
             this.cboKeySize = new System.Windows.Forms.ComboBox();
             this.txtDN = new System.Windows.Forms.TextBox();
-            this.chkExportablePrivateKey = new System.Windows.Forms.CheckBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -59,7 +59,6 @@ namespace Pluralsight.Crypto.UI
             this.btnCancel = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.lnkTitle = new System.Windows.Forms.LinkLabel();
-            this.label8 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
@@ -74,7 +73,6 @@ namespace Pluralsight.Crypto.UI
             this.groupBox1.Controls.Add(this.dtpValidFrom);
             this.groupBox1.Controls.Add(this.cboKeySize);
             this.groupBox1.Controls.Add(this.txtDN);
-            this.groupBox1.Controls.Add(this.chkExportablePrivateKey);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
@@ -85,6 +83,15 @@ namespace Pluralsight.Crypto.UI
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "certificate info";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(268, 57);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(160, 13);
+            this.label8.TabIndex = 6;
+            this.label8.Text = "We recommend 2048 or greater!";
             // 
             // dtpValidTo
             // 
@@ -129,18 +136,6 @@ namespace Pluralsight.Crypto.UI
             this.toolTip.SetToolTip(this.txtDN, "This must be a distinguished name (DN) such as \"cn=test\" or, \"cn=foo,o=pluralsigh" +
         "t\", etc.");
             this.txtDN.Validating += new System.ComponentModel.CancelEventHandler(this.txtDN_Validating);
-            // 
-            // chkExportablePrivateKey
-            // 
-            this.chkExportablePrivateKey.AutoSize = true;
-            this.chkExportablePrivateKey.Location = new System.Drawing.Point(165, 137);
-            this.chkExportablePrivateKey.Name = "chkExportablePrivateKey";
-            this.chkExportablePrivateKey.Size = new System.Drawing.Size(309, 17);
-            this.chkExportablePrivateKey.TabIndex = 1;
-            this.chkExportablePrivateKey.Text = "Exportable private key (currently broken - always exportable)";
-            this.toolTip.SetToolTip(this.chkExportablePrivateKey, "Check this box if you want to move the certificate once you install it (this is i" +
-        "gnored if you export a PFX file).");
-            this.chkExportablePrivateKey.UseVisualStyleBackColor = true;
             // 
             // label4
             // 
@@ -267,6 +262,7 @@ namespace Pluralsight.Crypto.UI
             // 
             // cboStoreLocation
             // 
+            this.cboStoreLocation.Enabled = false;
             this.cboStoreLocation.FormattingEnabled = true;
             this.cboStoreLocation.Location = new System.Drawing.Point(74, 17);
             this.cboStoreLocation.Name = "cboStoreLocation";
@@ -310,15 +306,6 @@ namespace Pluralsight.Crypto.UI
             this.lnkTitle.TabIndex = 10;
             this.lnkTitle.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkTitle_LinkClicked);
             // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(268, 57);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(160, 13);
-            this.label8.TabIndex = 6;
-            this.label8.Text = "We recommend 2048 or greater!";
-            // 
             // label10
             // 
             this.label10.AutoSize = true;
@@ -345,7 +332,7 @@ namespace Pluralsight.Crypto.UI
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "GenerateSelfSignedCertForm";
-            this.Text = "Pluralsight\'s Self-Cert";
+            this.Text = "Self-Cert";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainForm_FormClosed);
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.groupBox1.ResumeLayout(false);
@@ -363,7 +350,6 @@ namespace Pluralsight.Crypto.UI
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.CheckBox chkExportablePrivateKey;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;

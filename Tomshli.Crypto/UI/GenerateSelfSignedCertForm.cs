@@ -10,10 +10,10 @@ using System.IO;
 using System.Xml.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Security.Cryptography;
-using Pluralsight.Crypto;
+using Tomshli.Crypto;
 using System.Runtime.InteropServices;
 
-namespace Pluralsight.Crypto.UI
+namespace Tomshli.Crypto.UI
 {
     public partial class GenerateSelfSignedCertForm : Form
     {
@@ -34,7 +34,7 @@ namespace Pluralsight.Crypto.UI
             foreach (StoreLocation storeLocation in Enum.GetValues(typeof(StoreLocation)))
             {
                 int index = cboStoreLocation.Items.Add(storeLocation);
-                if (StoreLocation.LocalMachine == storeLocation)
+                if (StoreLocation.CurrentUser == storeLocation)
                     cboStoreLocation.SelectedIndex = index;
             }
             
@@ -75,17 +75,12 @@ namespace Pluralsight.Crypto.UI
             cboKeySize.Text = "4096";
             dtpValidFrom.Value = today.AddDays(-7); // just to be safe
             dtpValidTo.Value = today.AddYears(10);
-            chkExportablePrivateKey.Checked = true;
         }
 
         private void LoadSettings(XDocument doc)
         {
             txtDN.Text = GetSetting(doc, "dn", "");
             cboKeySize.Text = GetSetting(doc, "keySize", "4096");
-
-            bool isPrivateKeyExportable;
-            if (bool.TryParse(GetSetting(doc, "exportPrivateKey", "true"), out isPrivateKeyExportable))
-                chkExportablePrivateKey.Checked = isPrivateKeyExportable;
         }
 
         private string GetSetting(XDocument doc, string elementName, string defaultValue)
@@ -99,8 +94,7 @@ namespace Pluralsight.Crypto.UI
             XDocument doc = new XDocument(
                 new XElement("settings",
                     new XElement("dn", txtDN.Text),
-                    new XElement("keySize", cboKeySize.Text),
-                    new XElement("exportPrivateKey", chkExportablePrivateKey.Checked)
+                    new XElement("keySize", cboKeySize.Text)
                     ));
             try
             {

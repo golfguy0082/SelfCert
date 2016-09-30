@@ -10,7 +10,7 @@ using System.IO;
 using System.Security.Cryptography.X509Certificates;
 using System.Security.Cryptography;
 
-namespace Pluralsight.Crypto.UI
+namespace Tomshli.Crypto.UI
 {
     public partial class CertDetailsForm : Form
     {

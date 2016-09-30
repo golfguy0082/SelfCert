@@ -6,12 +6,12 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using Pluralsight.Crypto;
+using Tomshli.Crypto;
 using System.Security.Cryptography.X509Certificates;
 using System.Threading;
 using System.Runtime.InteropServices;
 
-namespace Pluralsight.Crypto.UI
+namespace Tomshli.Crypto.UI
 {
     public partial class BackgroundCertGenForm : Form
     {

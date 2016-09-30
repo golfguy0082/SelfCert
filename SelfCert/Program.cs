@@ -3,9 +3,9 @@
 // Want to learn more about .NET? Visit pluralsight.com today!
 //
 using System;
-using Pluralsight.Crypto.UI;
+using Tomshli.Crypto.UI;
 using System.Windows.Forms;
-using Pluralsight.Crypto;
+using Tomshli.Crypto;
 using System.Security.Cryptography.X509Certificates;
 
 namespace GenSelfSignedCert

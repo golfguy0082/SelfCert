@@ -9,7 +9,7 @@ using System.Text;
 using System.Runtime.InteropServices;
 using System.Security.Cryptography.X509Certificates;
 
-namespace Pluralsight.Crypto
+namespace Tomshli.Crypto
 {
     // This class has just enough functionality for generating self-signed certs.
     // In the future, I may expand it to do other things.

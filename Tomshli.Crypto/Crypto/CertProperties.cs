@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Security.Cryptography.X509Certificates;
 
-namespace Pluralsight.Crypto
+namespace Tomshli.Crypto
 {
     public class SelfSignedCertProperties
     {

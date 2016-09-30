@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Pluralsight.Crypto
+namespace Tomshli.Crypto
 {
     public class KeyExchangeKey : CryptKey
     {

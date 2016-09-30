@@ -5,7 +5,7 @@
 using System;
 using System.Runtime.InteropServices;
 
-namespace Pluralsight.Crypto
+namespace Tomshli.Crypto
 {
     internal class Win32Native
     {
