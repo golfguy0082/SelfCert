@@ -34,7 +34,10 @@ namespace Tomshli.Crypto.UI
             foreach (StoreLocation storeLocation in Enum.GetValues(typeof(StoreLocation)))
             {
                 int index = cboStoreLocation.Items.Add(storeLocation);
-                if (StoreLocation.CurrentUser == storeLocation)
+                // Right now, the "BindToPort" functionality ONLY seems to work
+                // if the certificate is in the LocalMachine store.  Otherwise
+                // the commandline returns a "parameter incorrect" error
+                if (StoreLocation.LocalMachine == storeLocation)
                     cboStoreLocation.SelectedIndex = index;
             }
             

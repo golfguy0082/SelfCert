@@ -41,9 +41,10 @@ namespace Tomshli.Crypto.UI
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtPrivateKeyFile = new System.Windows.Forms.TextBox();
+            this.txtThumbprint = new System.Windows.Forms.TextBox();
             this.txtStore = new System.Windows.Forms.TextBox();
             this.btnCancel = new System.Windows.Forms.Button();
-            this.txtThumbprint = new System.Windows.Forms.TextBox();
+            this.btnBindToPort = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -140,6 +141,14 @@ namespace Tomshli.Crypto.UI
             this.txtPrivateKeyFile.Size = new System.Drawing.Size(280, 20);
             this.txtPrivateKeyFile.TabIndex = 1;
             // 
+            // txtThumbprint
+            // 
+            this.txtThumbprint.Location = new System.Drawing.Point(92, 47);
+            this.txtThumbprint.Name = "txtThumbprint";
+            this.txtThumbprint.ReadOnly = true;
+            this.txtThumbprint.Size = new System.Drawing.Size(280, 20);
+            this.txtThumbprint.TabIndex = 1;
+            // 
             // txtStore
             // 
             this.txtStore.Location = new System.Drawing.Point(92, 17);
@@ -158,13 +167,15 @@ namespace Tomshli.Crypto.UI
             this.btnCancel.Text = "Close";
             this.btnCancel.UseVisualStyleBackColor = true;
             // 
-            // txtThumbprint
+            // btnBindToPort
             // 
-            this.txtThumbprint.Location = new System.Drawing.Point(92, 47);
-            this.txtThumbprint.Name = "txtThumbprint";
-            this.txtThumbprint.ReadOnly = true;
-            this.txtThumbprint.Size = new System.Drawing.Size(280, 20);
-            this.txtThumbprint.TabIndex = 1;
+            this.btnBindToPort.Location = new System.Drawing.Point(403, 13);
+            this.btnBindToPort.Name = "btnBindToPort";
+            this.btnBindToPort.Size = new System.Drawing.Size(99, 23);
+            this.btnBindToPort.TabIndex = 5;
+            this.btnBindToPort.Text = "Bind to port...";
+            this.btnBindToPort.UseVisualStyleBackColor = true;
+            this.btnBindToPort.Click += new System.EventHandler(this.btnBindToPort_Click);
             // 
             // CertDetailsForm
             // 
@@ -172,11 +183,15 @@ namespace Tomshli.Crypto.UI
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
             this.ClientSize = new System.Drawing.Size(532, 164);
+            this.Controls.Add(this.btnBindToPort);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "CertDetailsForm";
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.Text = "Certificate details";
             this.Load += new System.EventHandler(this.CertDetailsForm_Load);
             this.groupBox2.ResumeLayout(false);
@@ -200,6 +215,6 @@ namespace Tomshli.Crypto.UI
         private System.Windows.Forms.Button btnViewStore;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.TextBox txtThumbprint;
-
+        private System.Windows.Forms.Button btnBindToPort;
     }
 }
