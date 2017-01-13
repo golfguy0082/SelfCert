@@ -15,7 +15,7 @@ namespace Tomshli.Crypto
     // In the future, I may expand it to do other things.
     public class CryptContext : DisposeableObject
     {
-        private IntPtr handle = IntPtr.Zero;
+        private IntPtr handle = IntPtr.Zero;        
 
         public IntPtr Handle { get { return handle; } }
 
@@ -58,10 +58,16 @@ namespace Tomshli.Crypto
                 ProviderType = 1, // default RSA provider
             };
 
+            http://stackoverflow.com/questions/30756850/problems-when-p-invoking-certcreateselfsigncertificate
+            var algorithmPointer = Marshal.AllocHGlobal(Marshal.SizeOf(Win32Native.CryptoAlgorithms.Sha256));
+            Marshal.StructureToPtr(Win32Native.CryptoAlgorithms.Sha256, algorithmPointer, false);
+
             IntPtr certContext = Win32Native.CertCreateSelfSignCertificate(
                     handle,
                     new Win32Native.CryptoApiBlob(asnName.Length, asnNameHandle.AddrOfPinnedObject()),
-                    0, kpi, IntPtr.Zero,
+                    0, // flags
+                    kpi, 
+                    algorithmPointer, // Signature algorithm
                     ToSystemTime(properties.ValidFrom),
                     ToSystemTime(properties.ValidTo),
                     IntPtr.Zero);

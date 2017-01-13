@@ -13,7 +13,7 @@ namespace Tomshli.Crypto
         [return: MarshalAs(UnmanagedType.Bool)]
         internal static extern bool CryptReleaseContext(IntPtr ctx, int flags);
 
-        [DllImport("AdvApi32.dll", EntryPoint="CryptAcquireContextW", ExactSpelling = true, CharSet=CharSet.Unicode, SetLastError = true)]
+        [DllImport("AdvApi32.dll", EntryPoint = "CryptAcquireContextW", ExactSpelling = true, CharSet = CharSet.Unicode, SetLastError = true)]
         [return: MarshalAs(UnmanagedType.Bool)]
         internal static extern bool CryptAcquireContext(
             out IntPtr providerContext,
@@ -81,7 +81,7 @@ namespace Tomshli.Crypto
             public short Milliseconds;
         }
 
-        [StructLayout(LayoutKind.Sequential, CharSet=CharSet.Unicode)]
+        [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
         internal class CryptKeyProviderInformation
         {
             public string ContainerName;
@@ -91,6 +91,22 @@ namespace Tomshli.Crypto
             public int ProviderParameterCount;
             public IntPtr ProviderParameters;
             public int KeySpec;
+        }
+
+        [StructLayout(LayoutKind.Sequential)]
+        public struct CryptAlgorithmIdentifier
+        {
+            public String pszObjId;
+            public CryptoApiBlob Parameters;
+        }
+
+        public static class CryptoAlgorithms
+        {
+            public static readonly CryptAlgorithmIdentifier Sha256 = new CryptAlgorithmIdentifier
+            {
+                pszObjId = "1.2.840.113549.1.1.11",
+                Parameters = new CryptoApiBlob(0, IntPtr.Zero)
+            };        
         }
     }
 }
